@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <form action="/login_action/" method="post">
+            <p>账号:<input type="text" name="username" /></p>
+            <p>密码:<input type="password" name="password" /></p>
+            {{error}}<br>
+            {% csrf_token %}
+            <input type="submit" value="登录" />
+        </form>
+    </body>
+</html>
