@@ -1,18 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-
-def hello(request):
-    return render(request,"hello.html")
 
 #用户登录
 def login(request):
-    return render(request,"login.html", {"error": "登陆页面"})
+    #返回登录页面
+    if request.method == "GET":
+        return render(request,"login.html")
 
-def login_action(request):
-    #登陆动作处理
-    print("请求方法：",request.method)
+    #处理登录请求
     if request.method == "POST":
         username = request.POST.get("username", "")
         password = request.POST.get("password", "")
@@ -22,11 +20,28 @@ def login_action(request):
             return render(request, "login.html", {
                 "error": "用户名或密码为空！"
             })
-        if username == "zhangsan" and password =="123":
-            return render(request, "manage.html", {
-                "error": "登陆成功"
-            })
+
+        #django auth方法判断用户
+        user = auth.authenticate(username=username, password=password)
+        print("用户是否存在？", user)
+
+        if user is not None:
+            #记录用户登录状态
+            auth.login(request, user)
+            #重定向到manage
+            return HttpResponseRedirect("/manage/")
         else:
             return render(request, "login.html", {
                 "error": "用户名或密码错误！"
             })
+
+@login_required
+def manage(request):
+    #接口管理
+    return render(request, "manage.html")
+
+#退出功能
+def logout(request):
+    #登录时会在数据库创建session，登录时应该将session清除
+    auth.logout(request)
+    return HttpResponseRedirect("/")
