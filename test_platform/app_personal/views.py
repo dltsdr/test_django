@@ -35,12 +35,10 @@ def login(request):
                 "error": "用户名或密码错误！"
             })
 
-@login_required
-def manage(request):
-    #接口管理
-    return render(request, "manage.html")
+
 
 #退出功能
+@login_required
 def logout(request):
     #登录时会在数据库创建session，登录时应该将session清除
     auth.logout(request)

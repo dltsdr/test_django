@@ -1,0 +1,1158 @@
+<html>
+
+<head>
+    {% load static %}
+    <link href='{% static "css/classic.css" %}' rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href='{%static "/img/favicon.ico" %}' />
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar">
+
+            <!-- 导航 -->
+            <div class="sidebar-content ">
+                <a class="sidebar-brand" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-box align-middle">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    <span class="align-middle">测试平台</span>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Main
+                    </li>
+
+                    <!-- 项目管理 -->
+                    <li class="sidebar-item active">
+                        <a href="/manage/project" class="sidebar-link" aria-expanded="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-sliders align-middle">
+                                <line x1="4" y1="21" x2="4" y2="14"></line>
+                                <line x1="4" y1="10" x2="4" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12" y2="3"></line>
+                                <line x1="20" y1="21" x2="20" y2="16"></line>
+                                <line x1="20" y1="12" x2="20" y2="3"></line>
+                                <line x1="1" y1="14" x2="7" y2="14"></line>
+                                <line x1="9" y1="8" x2="15" y2="8"></line>
+                                <line x1="17" y1="16" x2="23" y2="16"></line>
+                            </svg> <span class="align-middle">项目管理</span>
+                        </a>
+                    </li>
+
+                    <!-- 模块管理 -->
+                    <li class="sidebar-item">
+                        <a href="/manage/module" data-toggle="collapse" class="sidebar-link collapsed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-layout align-middle">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg> <span class="align-middle">模块管理</span>
+                        </a>
+                    </li>
+
+                    <!-- 用例管理 -->
+                    <li class="sidebar-item">
+                        <a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-users align-middle">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg> 
+                            <span class="align-middle">用例管理</span>
+                        </a>
+                    </li>
+
+                    <!-- 任务管理 -->
+                    <li class="sidebar-item">
+                        <a href="#layouts" data-toggle="collapse" class="sidebar-link collapsed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-monitor align-middle">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg> <span class="align-middle">任务管理</span>
+                        </a>
+                    </li>
+
+                    <!-- Mock Server -->
+                    <li class="sidebar-item">
+                        <a href="#documentation" data-toggle="collapse" class="sidebar-link collapsed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-book-open align-middle">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg> <span class="align-middle">Mock Server</span>
+                        </a>
+                    </li>
+
+                    <!-- 测试工具 -->
+                    <li class="sidebar-item">
+                        <a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-grid align-middle">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg> <span class="align-middle">测试工具</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-bottom d-none d-lg-block">
+                    <div class="media">
+                        <img class="rounded-circle mr-3" src="img/avatars/avatar.jpg" alt="Chris Wood" width="40"
+                            height="40">
+                        <div class="media-body">
+                            <h5 class="mb-1">Chris Wood</h5>
+                            <div>
+                                <i class="fas fa-circle text-success"></i> Online
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+
+
+
+
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light bg-white">
+                <a class="sidebar-toggle d-flex mr-2">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+
+                <form class="form-inline d-none d-sm-inline-block">
+                    <input class="form-control form-control-no-border mr-sm-2" type="text"
+                        placeholder="Search projects..." aria-label="Search">
+                </form>
+
+
+
+
+
+
+
+
+
+
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+                                data-toggle="dropdown">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-settings align-middle">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path
+                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                    </path>
+                                </svg>
+                            </a>
+
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+                                data-toggle="dropdown">
+                                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1"
+                                    alt="Chris Wood"> <span class="text-dark">Chris Wood</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="pages-profile.html"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-user align-middle mr-1">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg> Profile</a>
+                                <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-pie-chart align-middle mr-1">
+                                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                                        <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                                    </svg> Analytics</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="pages-settings.html">Settings &amp; Privacy</a>
+                                <a class="dropdown-item" href="#">Help</a>
+                                <a class="dropdown-item" href="#">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="content">
+                <div class="container-fluid p-0">
+
+                    <div class="row mb-2 mb-xl-4">
+                        <div class="col-auto d-none d-sm-block">
+                            <h3>Welcome back, Chris!</h3>
+                        </div>
+
+                        <div class="col-auto ml-auto text-right mt-n1">
+                            <span class="dropdown mr-2">
+                                <button class="btn btn-light bg-white shadow-sm dropdown-toggle" id="day"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-calendar align-middle mt-n1">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg> Today
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="day">
+                                    <h6 class="dropdown-header">Settings</h6>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </span>
+
+                            <button class="btn btn-primary shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-filter align-middle">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                </svg>
+                            </button>
+                            <button class="btn btn-primary shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-refresh-cw align-middle">
+                                    <polyline points="23 4 23 10 17 10"></polyline>
+                                    <polyline points="1 20 1 14 7 14"></polyline>
+                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-5 d-flex">
+                            <div class="w-100">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card flex-fill">
+                                            <div class="card-header">
+                                                <span class="badge badge-primary float-right">Today</span>
+                                                <h5 class="card-title mb-0">Visitors</h5>
+                                            </div>
+                                            <div class="card-body my-2">
+                                                <div class="row d-flex align-items-center mb-4">
+                                                    <div class="col-8">
+                                                        <h2 class="d-flex align-items-center mb-0 font-weight-light">
+                                                            17.212
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <span class="text-muted">57%</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress progress-sm shadow-sm mb-1">
+                                                    <div class="progress-bar bg-primary" role="progressbar"
+                                                        style="width: 57%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card flex-fill">
+                                            <div class="card-header">
+                                                <span class="badge badge-info float-right">Monthly</span>
+                                                <h5 class="card-title mb-0">Real-Time</h5>
+                                            </div>
+                                            <div class="card-body my-2">
+                                                <div class="row d-flex align-items-center mb-4">
+                                                    <div class="col-8">
+                                                        <h2 class="d-flex align-items-center mb-0 font-weight-light">
+                                                            1.856
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <span class="text-muted">64%</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress progress-sm shadow-sm mb-1">
+                                                    <div class="progress-bar bg-info" role="progressbar"
+                                                        style="width: 64%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card flex-fill">
+                                            <div class="card-header">
+                                                <span class="badge badge-warning float-right">Annual</span>
+                                                <h5 class="card-title mb-0">Bounce</h5>
+                                            </div>
+                                            <div class="card-body my-2">
+                                                <div class="row d-flex align-items-center mb-4">
+                                                    <div class="col-8">
+                                                        <h2 class="d-flex align-items-center mb-0 font-weight-light">
+                                                            2.364
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <span class="text-muted">82%</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress progress-sm shadow-sm mb-1">
+                                                    <div class="progress-bar bg-warning" role="progressbar"
+                                                        style="width: 82%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card flex-fill">
+                                            <div class="card-header">
+                                                <span class="badge badge-success float-right">Yearly</span>
+                                                <h5 class="card-title mb-0">Activity</h5>
+                                            </div>
+                                            <div class="card-body my-2">
+                                                <div class="row d-flex align-items-center mb-4">
+                                                    <div class="col-8">
+                                                        <h2 class="d-flex align-items-center mb-0 font-weight-light">
+                                                            57.300
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <span class="text-muted">32%</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress progress-sm shadow-sm mb-1">
+                                                    <div class="progress-bar bg-success" role="progressbar"
+                                                        style="width: 32%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-xl-7">
+                            <div class="card flex-fill w-100">
+                                <div class="card-header">
+                                    <div class="card-actions float-right">
+                                        <div class="dropdown show">
+                                            <a href="#" data-toggle="dropdown" data-display="static">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-more-horizontal align-middle">
+                                                    <circle cx="12" cy="12" r="1"></circle>
+                                                    <circle cx="19" cy="12" r="1"></circle>
+                                                    <circle cx="5" cy="12" r="1"></circle>
+                                                </svg>
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title mb-0">Real-Time</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 d-flex">
+                                        <div class="card flex-fill w-100">
+                                            <div class="card-header">
+                                                <div class="card-actions float-right">
+                                                    <div class="dropdown show">
+                                                        <a href="#" data-toggle="dropdown" data-display="static">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-more-horizontal align-middle">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h5 class="card-title mb-0">Languages</h5>
+                                            </div>
+                                            <table class="table table-striped my-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Language</th>
+                                                        <th class="text-right">Users</th>
+                                                        <th class="d-none d-xl-table-cell w-75">% Users</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>en-us</td>
+                                                        <td class="text-right">735</td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                    style="width: 43%;" aria-valuenow="43"
+                                                                    aria-valuemin="0" aria-valuemax="100">43%</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>en-gb</td>
+                                                        <td class="text-right">223</td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                    style="width: 27%;" aria-valuenow="27"
+                                                                    aria-valuemin="0" aria-valuemax="100">27%</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>fr-fr</td>
+                                                        <td class="text-right">181</td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                    style="width: 22%;" aria-valuenow="22"
+                                                                    aria-valuemin="0" aria-valuemax="100">22%</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>es-es</td>
+                                                        <td class="text-right">132</td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                    style="width: 16%;" aria-valuenow="16"
+                                                                    aria-valuemin="0" aria-valuemax="100">16%</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>de-de</td>
+                                                        <td class="text-right">118</td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                    style="width: 15%;" aria-valuenow="15"
+                                                                    aria-valuemin="0" aria-valuemax="100">15%</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>ru-ru</td>
+                                                        <td class="text-right">98</td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                    style="width: 13%;" aria-valuenow="13"
+                                                                    aria-valuemin="0" aria-valuemax="100">13%</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-4 d-flex">
+                                        <div class="card flex-fill w-100">
+                                            <div class="card-header">
+                                                <div class="card-actions float-right">
+                                                    <div class="dropdown show">
+                                                        <a href="#" data-toggle="dropdown" data-display="static">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-more-horizontal align-middle">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h5 class="card-title mb-0">Mobile / Desktop</h5>
+                                            </div>
+                                            <div class="card-body d-flex w-100">
+                                                <div class="align-self-center chart">
+                                                    <div class="chartjs-size-monitor">
+                                                        <div class="chartjs-size-monitor-expand">
+                                                            <div class=""></div>
+                                                        </div>
+                                                        <div class="chartjs-size-monitor-shrink">
+                                                            <div class=""></div>
+                                                        </div>
+                                                    </div>
+                                                    <canvas id="chartjs-dashboard-bar-devices"
+                                                        style="display: block; height: 300px; width: 306px;" width="382"
+                                                        height="375" class="chartjs-render-monitor"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-4 d-flex">
+                                        <div class="card flex-fill">
+                                            <div class="card-header">
+                                                <div class="card-actions float-right">
+                                                    <div class="dropdown show">
+                                                        <a href="#" data-toggle="dropdown" data-display="static">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-more-horizontal align-middle">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h5 class="card-title mb-0">Interests</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="chart">
+                                                    <div class="chartjs-size-monitor">
+                                                        <div class="chartjs-size-monitor-expand">
+                                                            <div class=""></div>
+                                                        </div>
+                                                        <div class="chartjs-size-monitor-shrink">
+                                                            <div class=""></div>
+                                                        </div>
+                                                    </div>
+                                                    <canvas id="chartjs-dashboard-radar" width="382" height="375"
+                                                        class="chartjs-render-monitor"
+                                                        style="display: block; height: 300px; width: 306px;"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 col-lg-5 col-xl-4 d-flex">
+                                        <div class="card flex-fill w-100">
+                                            <div class="card-header">
+                                                <div class="card-actions float-right">
+                                                    <div class="dropdown show">
+                                                        <a href="#" data-toggle="dropdown" data-display="static">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-more-horizontal align-middle">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h5 class="card-title mb-0">Source / Medium</h5>
+                                            </div>
+                                            <div class="card-body d-flex">
+                                                <div class="align-self-center w-100">
+                                                    <div class="py-3">
+                                                        <div class="chart chart-xs">
+                                                            <div class="chartjs-size-monitor">
+                                                                <div class="chartjs-size-monitor-expand">
+                                                                    <div class=""></div>
+                                                                </div>
+                                                                <div class="chartjs-size-monitor-shrink">
+                                                                    <div class=""></div>
+                                                                </div>
+                                                            </div>
+                                                            <canvas id="chartjs-dashboard-pie" width="382" height="187"
+                                                                class="chartjs-render-monitor"
+                                                                style="display: block; height: 150px; width: 306px;"></canvas>
+                                                        </div>
+                                                    </div>
+
+                                                    <table class="table mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Source</th>
+                                                                <th class="text-right">Revenue</th>
+                                                                <th class="text-right">Value</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><i class="fas fa-square-full text-primary"></i>
+                                                                    Direct</td>
+                                                                <td class="text-right">$ 2602</td>
+                                                                <td class="text-right text-success">+43%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fas fa-square-full text-warning"></i>
+                                                                    Affiliate</td>
+                                                                <td class="text-right">$ 1253</td>
+                                                                <td class="text-right text-success">+13%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fas fa-square-full text-danger"></i>
+                                                                    E-mail</td>
+                                                                <td class="text-right">$ 541</td>
+                                                                <td class="text-right text-success">+24%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fas fa-square-full text-dark"></i> Other
+                                                                </td>
+                                                                <td class="text-right">$ 1465</td>
+                                                                <td class="text-right text-success">+11%</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-7 col-xl-8 d-flex">
+                                        <div class="card flex-fill">
+                                            <div class="card-header">
+                                                <div class="card-actions float-right">
+                                                    <div class="dropdown show">
+                                                        <a href="#" data-toggle="dropdown" data-display="static">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-more-horizontal align-middle">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h5 class="card-title mb-0">Traffic</h5>
+                                            </div>
+                                            <div id="datatables-dashboard-traffic_wrapper"
+                                                class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6"></div>
+                                                    <div class="col-sm-12 col-md-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <table id="datatables-dashboard-traffic"
+                                                            class="table table-striped my-0 dataTable no-footer"
+                                                            role="grid"
+                                                            aria-describedby="datatables-dashboard-traffic_info">
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th class="sorting" tabindex="0"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        rowspan="1" colspan="1"
+                                                                        aria-label="Source: activate to sort column ascending">
+                                                                        Source</th>
+                                                                    <th class="text-right sorting_desc" tabindex="0"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        rowspan="1" colspan="1" aria-sort="descending"
+                                                                        aria-label="Users: activate to sort column ascending">
+                                                                        Users</th>
+                                                                    <th class="d-none d-xl-table-cell text-right sorting"
+                                                                        tabindex="0"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        rowspan="1" colspan="1"
+                                                                        aria-label="Sessions: activate to sort column ascending">
+                                                                        Sessions</th>
+                                                                    <th class="d-none d-xl-table-cell text-right sorting"
+                                                                        tabindex="0"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        rowspan="1" colspan="1"
+                                                                        aria-label="Bounce Rate: activate to sort column ascending">
+                                                                        Bounce Rate</th>
+                                                                    <th class="d-none d-xl-table-cell text-right sorting"
+                                                                        tabindex="0"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        rowspan="1" colspan="1"
+                                                                        aria-label="Avg. Session Duration: activate to sort column ascending">
+                                                                        Avg. Session Duration</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+
+
+
+
+
+
+                                                                <tr role="row" class="odd">
+                                                                    <td>Google</td>
+                                                                    <td class="text-right sorting_1">1023</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">1265
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-success">
+                                                                        27.23%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:06:25</td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>Direct</td>
+                                                                    <td class="text-right sorting_1">872</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">1077
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-success">
+                                                                        32.70%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:09:18</td>
+                                                                </tr>
+                                                                <tr role="row" class="odd">
+                                                                    <td>Facebook</td>
+                                                                    <td class="text-right sorting_1">812</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">1003
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-success">
+                                                                        24.83%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:05:56</td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>GitHub</td>
+                                                                    <td class="text-right sorting_1">713</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">881
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-success">
+                                                                        38.09%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:06:19</td>
+                                                                </tr>
+                                                                <tr role="row" class="odd">
+                                                                    <td>DuckDuckGo</td>
+                                                                    <td class="text-right sorting_1">693</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">856
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-success">
+                                                                        37.36%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:09:12</td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>Pinterest</td>
+                                                                    <td class="text-right sorting_1">623</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">770
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-danger">
+                                                                        52.81%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:03:10</td>
+                                                                </tr>
+                                                                <tr role="row" class="odd">
+                                                                    <td>Bing</td>
+                                                                    <td class="text-right sorting_1">504</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">623
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-danger">
+                                                                        66.76%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:04:42</td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>Twitter</td>
+                                                                    <td class="text-right sorting_1">462</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">571
+                                                                    </td>
+                                                                    <td
+                                                                        class="d-none d-xl-table-cell text-right text-success">
+                                                                        31.53%</td>
+                                                                    <td class="d-none d-xl-table-cell text-right">
+                                                                        00:08:05</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-5">
+                                                        <div class="dataTables_info"
+                                                            id="datatables-dashboard-traffic_info" role="status"
+                                                            aria-live="polite">Showing 1 to 8 of 8 entries</div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-7">
+                                                        <div class="dataTables_paginate paging_simple_numbers"
+                                                            id="datatables-dashboard-traffic_paginate">
+                                                            <ul class="pagination">
+                                                                <li class="paginate_button page-item previous disabled"
+                                                                    id="datatables-dashboard-traffic_previous"><a
+                                                                        href="#"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        data-dt-idx="0" tabindex="0"
+                                                                        class="page-link">Previous</a></li>
+                                                                <li class="paginate_button page-item active"><a href="#"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        data-dt-idx="1" tabindex="0"
+                                                                        class="page-link">1</a></li>
+                                                                <li class="paginate_button page-item next disabled"
+                                                                    id="datatables-dashboard-traffic_next"><a href="#"
+                                                                        aria-controls="datatables-dashboard-traffic"
+                                                                        data-dt-idx="2" tabindex="0"
+                                                                        class="page-link">Next</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+            </main>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-left">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Support</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Help Center</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Privacy</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Terms of Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 text-right">
+                            <p class="mb-0">
+                                © 2019 - <a href="index.html" class="text-muted">AppStack</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+
+    <script>
+        $(function () {
+            // Bar chart
+            new Chart(document.getElementById("chartjs-dashboard-bar-devices"), {
+                type: "bar",
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                        label: "Mobile",
+                        backgroundColor: window.theme.primary,
+                        borderColor: window.theme.primary,
+                        hoverBackgroundColor: window.theme.primary,
+                        hoverBorderColor: window.theme.primary,
+                        data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79]
+                    }, {
+                        label: "Desktop",
+                        backgroundColor: "#E8EAED",
+                        borderColor: "#E8EAED",
+                        hoverBackgroundColor: "#E8EAED",
+                        hoverBorderColor: "#E8EAED",
+                        data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68]
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            stacked: false,
+                            ticks: {
+                                stepSize: 20
+                            }
+                        }],
+                        xAxes: [{
+                            barPercentage: .75,
+                            categoryPercentage: .5,
+                            stacked: false,
+                            gridLines: {
+                                color: "transparent"
+                            }
+                        }]
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#world_map").vectorMap({
+                map: "world_mill",
+                normalizeFunction: "polynomial",
+                hoverOpacity: .7,
+                hoverColor: false,
+                regionStyle: {
+                    initial: {
+                        fill: "#e3eaef"
+                    }
+                },
+                markerStyle: {
+                    initial: {
+                        "r": 9,
+                        "fill": window.theme.primary,
+                        "fill-opacity": .95,
+                        "stroke": "#fff",
+                        "stroke-width": 7,
+                        "stroke-opacity": .4
+                    },
+                    hover: {
+                        "stroke": "#fff",
+                        "fill-opacity": 1,
+                        "stroke-width": 1.5
+                    }
+                },
+                backgroundColor: "transparent",
+                zoomOnScroll: false,
+                markers: [{
+                    latLng: [31.230391, 121.473701],
+                    name: "Shanghai"
+                },
+                {
+                    latLng: [39.904202, 116.407394],
+                    name: "Beijing"
+                },
+                {
+                    latLng: [28.704060, 77.102493],
+                    name: "Delhi"
+                },
+                {
+                    latLng: [6.524379, 3.379206],
+                    name: "Lagos"
+                },
+                {
+                    latLng: [39.343357, 117.361649],
+                    name: "Tianjin"
+                },
+                {
+                    latLng: [24.860735, 67.001137],
+                    name: "Karachi"
+                },
+                {
+                    latLng: [41.008240, 28.978359],
+                    name: "Istanbul"
+                },
+                {
+                    latLng: [35.689487, 139.691711],
+                    name: "Tokyo"
+                },
+                {
+                    latLng: [23.129110, 113.264381],
+                    name: "Guangzhou"
+                },
+                {
+                    latLng: [19.075983, 72.877655],
+                    name: "Mumbai"
+                },
+                {
+                    latLng: [40.7127837, -74.0059413],
+                    name: "New York"
+                },
+                {
+                    latLng: [34.052235, -118.243683],
+                    name: "Los Angeles"
+                },
+                {
+                    latLng: [41.878113, -87.629799],
+                    name: "Chicago"
+                },
+                {
+                    latLng: [29.760427, -95.369804],
+                    name: "Houston"
+                },
+                {
+                    latLng: [33.448376, -112.074036],
+                    name: "Phoenix"
+                },
+                {
+                    latLng: [51.507351, -0.127758],
+                    name: "London"
+                },
+                {
+                    latLng: [48.856613, 2.352222],
+                    name: "Paris"
+                },
+                {
+                    latLng: [55.755825, 37.617298],
+                    name: "Moscow"
+                },
+                {
+                    latLng: [40.416775, -3.703790],
+                    name: "Madrid"
+                }
+                ]
+            });
+            setTimeout(function () {
+                $(window).trigger('resize');
+            }, 250)
+        });
+    </script>
+    <script>
+        $(function () {
+            // Pie chart
+            new Chart(document.getElementById("chartjs-dashboard-pie"), {
+                type: "pie",
+                data: {
+                    labels: ["Direct", "Affiliate", "E-mail", "Other"],
+                    datasets: [{
+                        data: [2602, 1253, 541, 1465],
+                        backgroundColor: [
+                            window.theme.primary,
+                            window.theme.warning,
+                            window.theme.danger,
+                            "#E8EAED"
+                        ],
+                        borderColor: "transparent"
+                    }]
+                },
+                options: {
+                    responsive: !window.MSInputMethodContext,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            // Radar chart
+            new Chart(document.getElementById("chartjs-dashboard-radar"), {
+                type: "radar",
+                data: {
+                    labels: ["Technology", "Sports", "Media", "Gaming", "Arts"],
+                    datasets: [{
+                        label: "Interests",
+                        backgroundColor: "rgba(0, 123, 255, 0.2)",
+                        borderColor: "#2979ff",
+                        pointBackgroundColor: "#2979ff",
+                        pointBorderColor: "#fff",
+                        pointHoverBackgroundColor: "#fff",
+                        pointHoverBorderColor: "#2979ff",
+                        data: [70, 53, 82, 60, 33]
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#datatables-dashboard-traffic").DataTable({
+                pageLength: 8,
+                lengthChange: false,
+                bFilter: false,
+                autoWidth: false,
+                order: [
+                    [1, "desc"]
+                ]
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>登陆成功页！</h1>
+    <a href="/logout/">退出</a>
+    {% for p in projects %}
+    <ul>
+        <li>{{p.name}}</li>
+        <li>{{p.name}}</li>
+    </ul>
+    {% endfor %}
+</body>
+
+</html>
