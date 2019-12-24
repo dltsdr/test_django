@@ -116,20 +116,6 @@
                         </a>
                     </li>
                 </ul>
-
-                <div class="sidebar-bottom d-none d-lg-block">
-                    <div class="media">
-                        <img class="rounded-circle mr-3" src="img/avatars/avatar.jpg" alt="Chris Wood" width="40"
-                            height="40">
-                        <div class="media-body">
-                            <h5 class="mb-1">Chris Wood</h5>
-                            <div>
-                                <i class="fas fa-circle text-success"></i> Online
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </nav>
 
@@ -147,16 +133,6 @@
                     <input class="form-control form-control-no-border mr-sm-2" type="text"
                         placeholder="Search projects..." aria-label="Search">
                 </form>
-
-
-
-
-
-
-
-
-
-
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
@@ -175,7 +151,10 @@
                             <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                                 data-toggle="dropdown">
                                 <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1"
-                                    alt="Chris Wood"> <span class="text-dark">Chris Wood</span>
+                                    alt="Chris Wood"> 
+                                
+                                <span class="text-dark">Chris Wood</span>
+                                <a href="/logout/">退出</a>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="pages-profile.html"><svg
@@ -253,59 +232,33 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-xl-7">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header">
-                                    <div class="card-actions float-right">
-                                        <div class="dropdown show">
-                                            <a href="#" data-toggle="dropdown" data-display="static">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="feather feather-more-horizontal align-middle">
-                                                    <circle cx="12" cy="12" r="1"></circle>
-                                                    <circle cx="19" cy="12" r="1"></circle>
-                                                    <circle cx="5" cy="12" r="1"></circle>
-                                                </svg>
-                                            </a>
+                        <div class="row">
+                            <div class="col-12 col-lg-7 col-xl-8 d-flex">
+                                <div class="card flex-fill">
+                                    <div class="card-header">
+                                        <div class="card-actions float-right">
+                                            <div class="dropdown show">
+                                                <a href="#" data-toggle="dropdown" data-display="static">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-more-horizontal align-middle">
+                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                        <circle cx="19" cy="12" r="1"></circle>
+                                                        <circle cx="5" cy="12" r="1"></circle>
+                                                    </svg>
+                                                </a>
 
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h5 class="card-title mb-0">Real-Time</h5>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12 col-lg-7 col-xl-8 d-flex">
-                                        <div class="card flex-fill">
-                                            <div class="card-header">
-                                                <div class="card-actions float-right">
-                                                    <div class="dropdown show">
-                                                        <a href="#" data-toggle="dropdown" data-display="static">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-more-horizontal align-middle">
-                                                                <circle cx="12" cy="12" r="1"></circle>
-                                                                <circle cx="19" cy="12" r="1"></circle>
-                                                                <circle cx="5" cy="12" r="1"></circle>
-                                                            </svg>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <a class="dropdown-item" href="#">Something else here</a>
                                                 </div>
-                                                <h5 class="card-title mb-0">项目管理</h5>
+                                                </div>
                                             </div>
+                                                <h5 class="card-title mb-0">项目管理</h5>
+                                        </div>
                                             <div id="datatables-dashboard-traffic_wrapper"
                                                 class="dataTables_wrapper dt-bootstrap4 no-footer">
                                                 <div class="row">
@@ -329,96 +282,16 @@
                                                             </thead>
                                                             <tbody>
 
+                                                            {% for p in projects %}
+                                                            <tr role="row" class="odd">
+                                                                <td>{{p.id}}</td>
+                                                                <td>{{p.name}}</td>
+                                                                <td>{{p.status}}</td>
+                                                                <td>{{p.describe}}</td>
+                                                                <td>{{p.create_time}}</td>
 
-                                                                
-                                                            <tr role="row" class="odd">
-                                                                    <td>Google</td>
-                                                                    <td class="text-right sorting_1">1023</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">1265
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-success">
-                                                                        27.23%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:06:25</td>
                                                             </tr>
-                                                            <tr role="row" class="even">
-                                                                    <td>Direct</td>
-                                                                    <td class="text-right sorting_1">872</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">1077
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-success">
-                                                                        32.70%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:09:18</td>
-                                                            </tr>
-                                                            <tr role="row" class="odd">
-                                                                    <td>Facebook</td>
-                                                                    <td class="text-right sorting_1">812</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">1003
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-success">
-                                                                        24.83%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:05:56</td>
-                                                            </tr>
-                                                            <tr role="row" class="even">
-                                                                    <td>GitHub</td>
-                                                                    <td class="text-right sorting_1">713</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">881
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-success">
-                                                                        38.09%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:06:19</td>
-                                                            </tr>
-                                                            <tr role="row" class="odd">
-                                                                    <td>DuckDuckGo</td>
-                                                                    <td class="text-right sorting_1">693</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">856
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-success">
-                                                                        37.36%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:09:12</td>
-                                                            </tr>
-                                                            <tr role="row" class="even">
-                                                                    <td>Pinterest</td>
-                                                                    <td class="text-right sorting_1">623</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">770
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-danger">
-                                                                        52.81%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:03:10</td>
-                                                            </tr>
-                                                            <tr role="row" class="odd">
-                                                                    <td>Bing</td>
-                                                                    <td class="text-right sorting_1">504</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">623
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-danger">
-                                                                        66.76%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:04:42</td>
-                                                            </tr>
-                                                            <tr role="row" class="even">
-                                                                    <td>Twitter</td>
-                                                                    <td class="text-right sorting_1">462</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">571
-                                                                    </td>
-                                                                    <td
-                                                                        class="d-none d-xl-table-cell text-right text-success">
-                                                                        31.53%</td>
-                                                                    <td class="d-none d-xl-table-cell text-right">
-                                                                        00:08:05</td>
-                                                            </tr>
+                                                            {% endfor %} 
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -454,10 +327,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-
                             </div>
+                        </div>
+                    </div>
             </main>
 
             <footer class="footer">
@@ -736,14 +608,14 @@
 
 
 
-    <h1>登陆成功页！</h1>
+    <!-- <h1>登陆成功页！</h1>
     <a href="/logout/">退出</a>
     {% for p in projects %}
     <ul>
         <li>{{p.name}}</li>
         <li>{{p.name}}</li>
     </ul>
-    {% endfor %}
+    {% endfor %} -->
 </body>
 
 </html>
