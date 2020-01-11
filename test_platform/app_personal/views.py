@@ -28,8 +28,8 @@ def login(request):
         if user is not None:
             #记录用户登录状态
             auth.login(request, user)
-            #重定向到manage
-            return HttpResponseRedirect("/manage/")
+            #重定向到登陆后直接进入项目管理界面
+            return HttpResponseRedirect("/project/")
         else:
             return render(request, "login.html", {
                 "error": "用户名或密码错误！"
