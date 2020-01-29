@@ -8,7 +8,7 @@ from app_manage.models import Project
 def manage(request):
     #项目管理
     projects_list = Project.objects.all()
-    return render(request, "manage.html", {"projects":projects_list})
+    return render(request, "project_list.html", {"projects":projects_list})
 
 def add_project(request):
     print("chuangjianxiangmu")
