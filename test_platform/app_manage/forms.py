@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import widgets
+from app_manage.models import Project
 
 class ProjectForm(forms.Form):
     name = forms.CharField(label='名称', 
@@ -13,4 +14,7 @@ class ProjectForm(forms.Form):
                                 widget = widgets.CheckboxInput()
                                 )
 
-    
+class ProjectEditForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['name', 'describe', 'status']

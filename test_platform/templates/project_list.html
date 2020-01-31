@@ -23,6 +23,7 @@
                             <th>描述</th>
                             <th>状态</th>
                             <th>创建时间</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +34,10 @@
                             <td>{{p.status}}</td>
                             <td>{{p.describe}}</td>
                             <td>{{p.create_time}}</td>
+                            <td>
+                                <a href="/project/edit/{{p.id}}/">编辑</a>
+                                <a>删除</a>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>

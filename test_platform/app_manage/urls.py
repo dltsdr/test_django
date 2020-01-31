@@ -6,4 +6,5 @@ urlpatterns = [
     #项目管理 test_platform.urls会调用这里的
     path('', views.manage),
     path('add', views.add_project),
+    path('edit/<int:pid>/', views.edit_project),
 ]
