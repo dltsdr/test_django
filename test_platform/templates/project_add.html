@@ -12,53 +12,13 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <table id="datatables-dashboard-traffic" style="able-layout:fixed;"
-                    class="table table-striped my-0 dataTable no-footer" role="grid"
-                    aria-describedby="datatables-dashboard-traffic_info">
-                    <thead>
-                        <tr role="row">
-                            <th>id</th>
-                            <th>名称</th>
-                            <th>描述</th>
-                            <th>状态</th>
-                            <th>创建时间</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for p in projects %}
-                        <tr role="row" class="odd">
-                            <td>{{p.id}}</td>
-                            <td>{{p.name}}</td>
-                            <td>{{p.status}}</td>
-                            <td>{{p.describe}}</td>
-                            <td>{{p.create_time}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-5">
-                <div class="dataTables_info" id="datatables-dashboard-traffic_info" role="status" aria-live="polite"></div>
-                    Showing 1 to 8 of 8 entries</div>
-            </div>
-            <div class="col-sm-12 col-md-7">
-                <div class="dataTables_paginate paging_simple_numbers" id="datatables-dashboard-traffic_paginate">
-                    <ul class="pagination">
-                        <li class="paginate_button page-item previous disabled"
-                            id="datatables-dashboard-traffic_previous"><a href="#"
-                                aria-controls="datatables-dashboard-traffic" data-dt-idx="0" tabindex="0"
-                                class="page-link">Previous</a></li>
-                        <li class="paginate_button page-item active"><a href="#"
-                                aria-controls="datatables-dashboard-traffic" data-dt-idx="1" tabindex="0"
-                                class="page-link">1</a>
-                        </li>
-                        <li class="paginate_button page-item next disabled" id="datatables-dashboard-traffic_next"><a
-                                href="#" aria-controls="datatables-dashboard-traffic" data-dt-idx="2" tabindex="0"
-                                class="page-link">Next</a>
-                        </li>
-                    </ul>
+                <div style="margin-left: 20px; margin-right: 20px; width: 80%;">
+                    <form action="/project/add" method="post">
+                        {{ form }}
+                        {% csrf_token %}
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="创建">
+                    </form>
                 </div>
             </div>
         </div>
