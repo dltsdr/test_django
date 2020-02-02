@@ -1,0 +1,28 @@
+<html>
+<head>
+  
+  <!--login.html-->
+  <!-- 方式一 -->
+  {% load static %}
+  <link href='{% static "css/theme.css" %}' rel='stylesheet' type='text/css' />
+  <link rel="shortcut icon" href='{%static "/img/favicon.ico" %}' />
+
+  <!-- 方式二 -->
+  <!-- <link href="/static/css/theme.css" rel='stylesheet' type='text/css' />
+  <link rel="shortcut icon" href='{%static "/img/favicon.ico" %}' /> -->
+  <!-- <link  href='https://htmlstream.com/preview/space-v1.6.1/assets/css/theme.css' rel='stylesheet' type='text/css' /> -->
+
+
+  <!--manage.html-->
+  <link href='{% static "css/classic.css" %}' rel='stylesheet' type='text/css' />
+
+
+</head>
+
+<body>
+{% block base %}
+    <!--所有的html页面都继承这个页面--->>
+{% endblock %}
+</body>
+
+</html>
