@@ -20,7 +20,7 @@ def add_project(request):
             describe = form.cleaned_data['describe']
             status = form.cleaned_data['status']
             Project.objects.create(name=name, describe=describe, status=status)
-        return HttpResponseRedirect("/project/1/")
+        return HttpResponseRedirect("/manage/")
     else:
         form = ProjectForm()
     return render(request, 'project/add.html', {'form': form})
@@ -41,7 +41,7 @@ def edit_project(request, pid):
             p.status = status
             p.save()
 
-        return HttpResponseRedirect("/project/1/")
+        return HttpResponseRedirect("/manage/")
     else:
         if pid:
         #判断pid是否存在，如果存在则进行下面的逻辑
@@ -57,6 +57,6 @@ def delete_project(request, pid):
     if request.method == "GET":
         p = Project.objects.get(id=pid)
         p.delete()
-        return HttpResponseRedirect("/project/1/")
+        return HttpResponseRedirect("/manage/")
     else:
-        return HttpResponseRedirect("/project/1/")
+        return HttpResponseRedirect("/manage/")

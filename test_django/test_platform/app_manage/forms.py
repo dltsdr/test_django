@@ -1,6 +1,10 @@
 from django import forms
 from django.forms import widgets
 from app_manage.models import Project
+from app_manage.models import Module
+
+
+"""项目管理"""
 
 class ProjectForm(forms.Form):
     name = forms.CharField(label='名称', 
@@ -18,3 +22,12 @@ class ProjectEditForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ['name', 'describe', 'status']
+
+
+
+"""模块管理"""
+
+class ModuleForm(forms.ModelForm):
+    class Meta:
+        model = Module
+        fields = ['project', 'name', 'describe']

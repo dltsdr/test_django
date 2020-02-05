@@ -4,12 +4,15 @@ from app_manage.views import module_view
 
 urlpatterns = [
     #项目管理 test_platform.urls会调用这里的
-    path('1/', project_view.list_project),
-    path('add', project_view.add_project),
-    path('edit/<int:pid>/', project_view.edit_project),
-    path('delete/<int:pid>/', project_view.delete_project),
+    path('', project_view.list_project),
+    path('project_list/', project_view.list_project),
+    path('project_add/', project_view.add_project),
+    path('project_edit/<int:pid>/', project_view.edit_project),
+    path('project_delete/<int:pid>/', project_view.delete_project),
 
     #模块管理
-    path('2/', module_view.list_module),
-
+    path('module_list/', module_view.list_module),
+    path('module_add/', module_view.add_module),
+    path('module_edit/<int:mid>/', module_view.edit_module),
+    path('module_delete/<int:mid>/', module_view.delete_module),
 ]

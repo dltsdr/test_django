@@ -4,7 +4,7 @@
     <div class="card-header">
         <div class="card-actions float-right"></div>
         <h5 class="card-title mb-0" style="float:left">模块管理</h5>
-        <button onclick="add()" type="button" class="btn btn-primary" style="float:right">创建</button>
+        <button onclick="module_add()" type="button" class="btn btn-primary" style="float:right">创建</button>
     </div>
     <div id="datatables-dashboard-traffic_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
         <div class="row">
@@ -35,8 +35,8 @@
                             <td>{{m.project}}</td>
                             <td>{{m.create_time |date:"Y-m-d H:i:s"}}</td>
                             <td>
-                                <a href="/project/edit/{{p.id}}/">编辑</a>
-                                <a href="/project/delete/{{p.id}}/">删除</a>
+                                <a href="/manage/module_edit/{{m.id}}/">编辑</a>
+                                <a href="/manage/module_delete/{{m.id}}/">删除</a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -71,9 +71,9 @@
     </div>
 </div>
 <script>
-    function add() 
+    function module_add() 
     {
-        window.location.href = "/project/add";
+        window.location.href = "/manage/module_add";
     }
 </script>
 {% endblock %}
