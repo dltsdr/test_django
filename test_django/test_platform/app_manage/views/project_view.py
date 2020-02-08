@@ -8,8 +8,10 @@ from app_manage.forms import ProjectForm,ProjectEditForm
 @login_required
 #项目管理
 def list_project(request):
+    username = request.COOKIES.get('user', '')
     projects_list = Project.objects.all()
-    return render(request, "project/list.html", {"projects":projects_list})
+    return render(request, "project/list.html", {"projects":projects_list,
+                                                 "user":username})
 
 #创建项目
 def add_project(request):

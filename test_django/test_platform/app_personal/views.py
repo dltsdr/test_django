@@ -29,7 +29,10 @@ def login(request):
             #记录用户登录状态
             auth.login(request, user)
             #重定向到登陆后直接进入项目管理界面
-            return HttpResponseRedirect("/manage/")
+            response = HttpResponseRedirect("/manage/")
+            response.set_cookie("user", username, 3600)
+            #登录成功后生成cookie存入浏览器
+            return response
         else:
             return render(request, "login.html", {
                 "error": "用户名或密码错误！"
