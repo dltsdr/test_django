@@ -13,15 +13,70 @@
         <div class="row">
             <div class="col-sm-12">
                 <div style="margin-left: 20px; margin-right: 20px; width: 80%;">
-                    <form action="/manage/project_add/" method="post">
-                        {{ form }}
-                        {% csrf_token %}
-                        <br>
-                        <input type="submit" class="btn btn-primary" value="创建">
-                    </form>
+                    <div class="input-group" style="height:50px;">
+                        <span class="input-group-addon" style="margin-top: 5px;margin-right: 10px;">URL：</span>
+                        <input id="req_url" type="text" class="form-control" value="http">
+                    </div>
+                    <div  style="height:50px;">
+                        <label>* 请求方法：</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="req_method" id="get" value="get" checked> GET
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="req_method" id="post" value="post"> POST
+                        </label>
+                    </div>
+
+                    <div class="input-group" style="height:50px;">
+                        <span class="input-group-addon" style="margin-top: 5px;margin-right: 10px;">header：</span>
+                        <input id="header" type="text" class="form-control" value="{}">
+                    </div>
+
+                    <div style="margin-top: 10px;">
+                        <label>* 参数类型：</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="par_type" id="form" value="form" checked> form-data
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="par_type" id="json" value="json"> JSON
+                        </label>
+                    </div>
+
+                    <div class="input-group" style="height:50px;">
+                        <span class="input-group-addon" style="margin-top: 5px;margin-right: 10px;">参数：</span>
+                        <input value="{}" id="parameter" type="text" class="form-control">
+                    </div>
+
+                    <p>说明：以字典的方式设置参数，如：{"id":1, "name":"名称"}</p>
+
+                    <div style="float: right;margin-right: 10px;">
+                        <button type="button" class="btn btn-primary" onclick="sendFun()">发送</button>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <p>返回结果：</p>
+                        <textarea id="result" class="form-control" rows="10" name=textarea></textarea>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="http://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<script type="text/javascript">
+
+    function sendFun() {
+
+        $.get("/case/send_req/",{
+            "id": "1",
+            "name": "tom"
+        },
+        function(data,status){
+            console.log("status", status);
+            console.log("data", data);
+         });
+    }
+</script>
 {% endblock %}
