@@ -68,15 +68,37 @@
 <script type="text/javascript">
 
     function sendFun() {
+        // 获取填写的url
+        req_url = $("#req_url").val();
+
+        // 获取选中的请求
+        req_method = $('input[name="req_method"]:checked').val();
+
+        // header
+        req_header = $("#header").val();
+
+        //参数类型
+        req_type = $('input[name="par_type"]:checked').val();
+
+        //参数
+        req_parameter = $("#parameter").val();
+
 
         $.get("/case/send_req/",{
-            "id": "1",
-            "name": "tom"
+            url: req_url,
+            method: req_method,
+            header: req_header,
+            per_type: req_type,
+            per_value: req_parameter,
         },
-        function(data,status){
-            console.log("status", status);
-            console.log("data", data);
-         });
+        function(resp){
+            console.log("resp", resp);
+            if(resp.code == 10200) {
+                document.querySelector("#result").value = resp.data;
+            } else{
+                window.alert(resp.message);
+            }
+        });
     }
 </script>
 {% endblock %}
