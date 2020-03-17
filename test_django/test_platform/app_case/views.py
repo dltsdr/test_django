@@ -12,25 +12,29 @@ def send_req(request):
     发送接口
     """
     if request.method == "GET":
-        url = request.GET.get("url")
-        method = request.GET.get("method")
-        header = request.GET.get("header")
-        per_type = request.GET.get("per_type")
-        per_value = request.GET.get("per_value")
+        url = request.GET.get("url", "")
+        method = request.GET.get("method", "")
+        header = request.GET.get("header", "")
+        per_type = request.GET.get("per_type", "")
+        per_value = request.GET.get("per_value", "")
+        print("per_value-->", per_value, type(per_value))
 
+        #后端做强制空处理
+        if url == "":
+            return JsonResponse({"code":10101}, "message":"URL不能为空！"})
 
         #格式异常处理
         try:
             #str根式需要转换成json格式
             header = json.loads(header)
         except json.decoder.JSONDecodeError:
-            return JsonResponse({"code":10101, "message":"header格式错误，必须是标准的json格式！"})
+            return JsonResponse({"code":10102, "message":"header格式错误，必须是标准的json格式！"})
 
 
         try:
             per_value = json.loads(per_value)
         except json.decoder.JSONDecodeError:
-            return JsonResponse({"code":10101, "message":"参数格式错误，必须是标准的json格式！"})
+            return JsonResponse({"code":10103, "message":"参数格式错误，必须是标准的json格式！"})
 
 
         print("headerasdasdasdass", per_value, type(per_value))

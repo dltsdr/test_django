@@ -42,16 +42,24 @@
                         </label>
                     </div>
 
-                    <div class="input-group" style="height:50px;">
+                    <div class="input-group" style="height:230px;">
                         <span class="input-group-addon" style="margin-top: 5px;margin-right: 10px;">参数：</span>
-                        <input value="{}" id="parameter" type="text" class="form-control">
+                        <span class="input-group mb-3">
+                            <div class="input-group">
+                                <div id="parameterEditor" style="width: 100%"></div>
+                            </div>
+                        </span>
                     </div>
 
+
                     <p>说明：以字典的方式设置参数，如：{"id":1, "name":"名称"}</p>
+
 
                     <div style="float: right;margin-right: 10px;">
                         <button type="button" class="btn btn-primary" onclick="sendFun()">发送</button>
                     </div>
+
+
 
                     <div style="margin-top: 30px;">
                         <p>返回结果：</p>
@@ -63,9 +71,20 @@
     </div>
 </div>
 
-<script src="http://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<!-- <script src="http://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-jsonview/1.2.3/jquery.jsonview.css">
+<script src="https://cdn.bootcss.com/jquery-jsonview/1.2.3/jquery.jsonview.js"></script>
+<link href="https://cdn.bootcss.com/jsoneditor/5.32.5/jsoneditor.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jsoneditor/5.32.5/jsoneditor.js"></script>
 <script type="text/javascript">
+
+    //初始化JSONeditor编辑框
+    var parameters = document.getElementById("parameterEditor");
+    var options = {
+        mode: "code",
+    };
+    var parameterEditor = new JSONEditor(parameters, options);
 
     function sendFun() {
         // 获取填写的url
@@ -81,15 +100,21 @@
         req_type = $('input[name="par_type"]:checked').val();
 
         //参数
-        req_parameter = $("#parameter").val();
+        req_parameter = parameterEditor.get();//$("#parameter").val();
+        let req_parameter_str = JSON.stringify(req_parameter, null, 2);
+        console.log("req_par", req_parameter);
 
+        if (req_url == ""){
+            window.alert("URL地址不能为空");
+            return;//若此判断出错则不处理下面的代码return返回
+        }
 
         $.get("/case/send_req/",{
             url: req_url,
             method: req_method,
             header: req_header,
             per_type: req_type,
-            per_value: req_parameter,
+            per_value: req_parameter_str,
         },
         function(resp){
             console.log("resp", resp);
@@ -101,4 +126,41 @@
         });
     }
 </script>
+
+<style>
+    .option {
+        height: 50px;
+    }
+
+    .option-tile {
+        margin-top: 5px;
+        margin-right: 10px;
+    }
+
+    div.jsoneditor {
+        border: thin solid #ced4da;
+    }
+
+    div.jsoneditor-menu {
+        display: none;
+    }
+
+    .ace-jsoneditor .ace_gutter {
+        background: white;
+    }
+
+    div.jsoneditor-outer.has-main-menu-bar {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    .per-label {
+        margin-right: 10px;
+        margin-bottom: 4px;
+        font-size: 1rem;
+    }
+</style>
+
 {% endblock %}
+
+
